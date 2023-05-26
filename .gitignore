@@ -1,5 +1,8 @@
 *.jpg
 *.csv
+.venv
+.vscode
+__pycache__
 tempCodeRunnerFile.py
 Images/
 test/
