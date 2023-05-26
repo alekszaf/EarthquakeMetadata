@@ -23,7 +23,7 @@ python3.10.exe -m venv .venv
 python3.10.exe install -r requirements.txt
 ```
 
-### Step 5: Run the Project
+### Step 5: Run the Project (to be implemented)
 ```bash
 python main.py
 ```
