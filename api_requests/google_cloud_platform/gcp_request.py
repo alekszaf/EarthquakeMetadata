@@ -1,4 +1,7 @@
-"""API request to the Earthquake photos bucket on the Google Cloud platform """
+"""
+This script sends an API request to the Earthquake photos bucket on the Google Cloud platform.
+"""
+
 from google.cloud import storage
 from google.oauth2.service_account import Credentials
 import pandas as pd
