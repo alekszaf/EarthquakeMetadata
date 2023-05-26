@@ -2,11 +2,11 @@
 
 ## Environment Setup
 ### Step 1: Clone the Repository
-'''bash
-mkdir deep_learning
+```bash
+mkdir EarthquakeMetadata
 git clone https://github.com/alekszaf/EarthquakeMetadata.git ./EarthquakeMetadata
 cd EarthquakeMetadata
-'''
+```
 
 ### Step 2: Create a Virtual Environment
 ```bash
