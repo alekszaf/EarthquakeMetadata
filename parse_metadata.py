@@ -2,9 +2,15 @@ import os
 import pandas as pd
 import PIL.Image
 import PIL.ExifTags
+from tkinter import filedialog
 #import exiftool
 
-path = './test'
+#path = './test'
+
+path = filedialog.askdirectory()
+print(path)
+
+df = pd.DataFrame()
 
 for i in os.listdir(path):
     image_path = os.path.join(path, i)
@@ -19,7 +25,7 @@ for i in os.listdir(path):
     #print(exif)
     
     #Check xmp metadata
-    #print(img.getxmp())
+    print(img.getxmp())
     
     #Get GPS metadata
     gps={}
