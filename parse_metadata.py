@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 import PIL.Image
 import PIL.ExifTags
 #import exiftool
@@ -41,10 +42,10 @@ for i in os.listdir(path):
         long = -long
     
     print(lat, long)
-    coords = {'latitude': lat, 'longitude': long}
-    
+    coords = {'filename': i,'latitude': lat, 'longitude': long}
     
     df_loc = pd.DataFrame(coords, index=[0])
     df = pd.concat([df, df_loc], ignore_index=True)
 
 
+df.to_csv('photo_location_data.csv', index=False)
