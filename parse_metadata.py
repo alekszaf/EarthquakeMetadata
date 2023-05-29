@@ -34,21 +34,22 @@ for i in os.listdir(path):
         gps[geo_tag]=v
         
     if gps == {}:
-        pass
- 
-    #Get Latitude and Longitude
-    lat = gps['GPSLatitude']
-    long = gps['GPSLongitude']
+        lat = 'NA'
+        lon = 'NA'
+    else:
+        #Get Latitude and Longitude
+        lat = gps['GPSLatitude']
+        long = gps['GPSLongitude']
     
-    #Convert to degrees
-    lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
-    long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
+        #Convert to degrees
+        lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
+        long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
     
-    #Negative if LatitudeRef:S or LongitudeRef:W
-    if gps['GPSLatitudeRef']=='S':
-        lat = -lat
-    if gps['GPSLongitudeRef']=='W':
-        long = -long
+        #Negative if LatitudeRef:S or LongitudeRef:W
+        if gps['GPSLatitudeRef']=='S':
+            lat = -lat
+        if gps['GPSLongitudeRef']=='W':
+            long = -long
     
     print(lat, long)
     coords = {'filename': i,'latitude': lat, 'longitude': long}
