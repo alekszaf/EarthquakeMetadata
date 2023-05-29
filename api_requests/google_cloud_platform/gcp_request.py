@@ -5,6 +5,7 @@ This script sends an API request to the Earthquake photos bucket on the Google C
 from google.cloud import storage
 from google.oauth2.service_account import Credentials
 import pandas as pd
+import os
 
 
 def get_bucket_file_info(bucket_name, key_file_path):
@@ -32,15 +33,26 @@ def get_bucket_file_info(bucket_name, key_file_path):
     return urls, names
 
 
-# Define the bucket name and service account key file path
-BUCKET_NAME = "test_photos_earthquake_research"
-KEY_FILE_PATH = "./api/gcp/service_account_key.json"
+def process_files():
+    # Define the bucket name and service account key file path
+    BUCKET_NAME = "test_photos_earthquake_research"
+    KEY_FILE = "service_account_key.json"
+    PATH = "./api_requests/google_cloud_platform/"
+    KEY_FILE_PATH = os.path.join(PATH, KEY_FILE)
 
-# Get the file URLs and file names
-file_urls, file_names = get_bucket_file_info(BUCKET_NAME, KEY_FILE_PATH)
+    # Get the file URLs and file names
+    file_urls, file_names = get_bucket_file_info(BUCKET_NAME, KEY_FILE_PATH)
 
-# Create a Pandas DataFrame
-df = pd.DataFrame({"File URL": file_urls, "File Name": file_names})
+    # Create a Pandas DataFrame
+    df = pd.DataFrame({"File URL": file_urls, "File Name": file_names})
 
-# Print the DataFrame
-print(df)
+    # Print the DataFrame
+    print(df)
+
+    # Save the dataframe to a csv file
+    OUTPUT_FILE = "output.csv"
+    df.to_csv(os.path.join(PATH, OUTPUT_FILE), index=False)
+
+
+if __name__ == "__main__":
+    process_files()

@@ -22,14 +22,14 @@ def get_folder_children(user_email, folder_path, access_token, timeout=None):
         dict: A dictionary containing the metadata of the folder's children.
     """
 
-    headers = {
-        'Authorization': f'Bearer {access_token}'
-    }
+    headers = {"Authorization": f"Bearer {access_token}"}
 
-    folder_url = f"https://graph.microsoft.com/v1.0/users/{user_email}/drive/root:/{folder_path}"
+    folder_url = (
+        f"https://graph.microsoft.com/v1.0/users/{user_email}/drive/root:/{folder_path}"
+    )
     response = requests.get(folder_url, headers=headers, timeout=timeout)
     response.raise_for_status()
-    folder_id = response.json()['id']
+    folder_id = response.json()["id"]
 
     children_url = f"https://graph.microsoft.com/v1.0/users/{user_email} \
                     /drive/items/{folder_id}/children"
@@ -46,17 +46,17 @@ def main():
     in the specified folder.
     """
 
-    user_email = 'nsmw4@newcastle.ac.uk'
+    user_email = "nsmw4@newcastle.ac.uk"
     folder_path = "/Documents/Qsync/research/EEFIT/new grant/nepal/photos"
     access_token = generate_access_token.token_request()
     data = get_folder_children(user_email, folder_path, access_token)
 
     file_urls = []
-    for file in data['value']:
-        file_name = file['name']
-        file_url = file['webUrl']
+    for file in data["value"]:
+        file_name = file["name"]
+        file_url = file["webUrl"]
         file_urls.append(file_url)
-        print(f'{file_name}: {file_url}')
+        print(f"{file_name}: {file_url}")
 
     print(len(file_urls))
 
