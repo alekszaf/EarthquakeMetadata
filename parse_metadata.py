@@ -32,6 +32,9 @@ for i in os.listdir(path):
     for k, v in exif['GPSInfo'].items():
         geo_tag = PIL.ExifTags.GPSTAGS.get(k)
         gps[geo_tag]=v
+        
+    if gps == {}:
+        pass
  
     #Get Latitude and Longitude
     lat = gps['GPSLatitude']
