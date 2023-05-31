@@ -90,11 +90,12 @@ def get_metadata(path, out_path, output_name):
 if __name__=="__main__":
     print("Select the image directory")
     path = filedialog.askdirectory()
-    
     print("Input path: " + path)
-    out_path = filedialog.askdirectory()
     
+    print("Select the output directory")
+    out_path = filedialog.askdirectory()
     print("Output path: " + out_path)
+    
     output_name = input('Output file name: ')
     
     get_metadata(path, out_path, output_name)
