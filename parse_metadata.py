@@ -6,7 +6,7 @@ from tkinter import filedialog
 
 #path = './test'
 
-def get_metadata(path):
+def get_metadata(path, out_path, output_name):
     
     # Initialize empty dataframe
     df = pd.DataFrame()
@@ -72,19 +72,30 @@ def get_metadata(path):
 
             df_meta = pd.DataFrame(meta, index=[0])
             df = pd.concat([df, df_meta], ignore_index=True)
-            
+        
+        # If error in metadata, skip the file and record it in a dataframe    
         except Exception:
             print(f"Error in metadata for image {i}")
             err_files = {'filename' : i}
             df_meta = pd.DataFrame(err_files, index=[0])
             meta_err = pd.concat([meta_err, df_meta])
 
-    df.to_csv('metadata.csv', index=False)
-    meta_err.to_csv('metadata_errors.csv', index=False)
+    # Save the metadata to a CSV
+    df.to_csv(os.path.join(out_path, output_name + '.csv'), index=False)
+    
+    # Save the list of files with metadata errors to a CSV
+    meta_err.to_csv(os.path.join(out_path, output_name + '_errors.csv'), index=False)
+
 
 if __name__=="__main__":
     print("Select the image directory")
     path = filedialog.askdirectory()
+    
     print("Input path: " + path)
-    get_metadata(path)
+    out_path = filedialog.askdirectory()
+    
+    print("Output path: " + out_path)
+    output_name = input('Output file name: ')
+    
+    get_metadata(path, out_path, output_name)
     print("Done! metadata.csv is ready")
