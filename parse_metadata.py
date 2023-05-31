@@ -7,7 +7,6 @@ from tkinter import filedialog
 #path = './test'
 
 path = filedialog.askdirectory()
-#print(path)
 
 df = pd.DataFrame()
 
@@ -20,13 +19,17 @@ for i in os.listdir(path):
         if k in PIL.ExifTags.TAGS
         }
 
-    #Check exif metadata
+    # Check exif metadata
     #print(exif)
 
-    #Check xmp metadata
+    # Check xmp metadata
     #print(img.getxmp())
+    
+    # Get date
+    date = img._getexif()[36867]
+    print(date)
 
-    #Get GPS metadata
+    # Get GPS metadata
     gps={}
     for k, v in exif['GPSInfo'].items():
         geo_tag = PIL.ExifTags.GPSTAGS.get(k)
@@ -38,22 +41,22 @@ for i in os.listdir(path):
         lat = 'NA'
         long = 'NA'
     else:
-        #Get Latitude and Longitude
+        # Get Latitude and Longitude
         lat = gps['GPSLatitude']
         long = gps['GPSLongitude']
 
-        #Convert to degrees
+        # Convert to degrees
         lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
         long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
 
-        #Negative if LatitudeRef:S or LongitudeRef:W
+        # Negative if LatitudeRef:S or LongitudeRef:W
         if gps['GPSLatitudeRef']=='S':
             lat = -lat
         if gps['GPSLongitudeRef']=='W':
             long = -long
 
     print(lat, long)
-    coords = {'filename': i,'latitude': lat, 'longitude': long}
+    coords = {'filename': i, 'date': date, 'latitude': lat, 'longitude': long}
 
     df_loc = pd.DataFrame(coords, index=[0])
     df = pd.concat([df, df_loc], ignore_index=True)
