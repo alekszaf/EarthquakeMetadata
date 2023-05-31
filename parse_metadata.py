@@ -26,6 +26,22 @@ def get_metadata(path):
         # Check xmp metadata
         #print(img.getxmp())
         
+                
+        # Access the XMP metadata
+        xmp = img.getxmp().items()
+        for k, v in xmp:
+            xmp = v
+        
+        # Access earthquake metadata
+        emeta = xmp['RDF']['Description']['subject']['Bag']['li']
+        print(emeta)
+                
+        emeta = [i.split(':', 1) for i in emeta]
+    
+        if ['Building address', ' N/A'] in emeta:
+            emeta_dict = dict(emeta)
+            print(emeta_dict)
+        
         # Get date
         date = img._getexif()[36867]
         print(date)
@@ -58,22 +74,11 @@ def get_metadata(path):
 
         print(lat, long)
         
-        # Access the XMP metadata
-        xmp = img.getxmp().items()
-        for k, v in xmp:
-            xmp = v
-        
-        # Access earthquake metadata
-        emeta = xmp['RDF']['Description']['subject']['Bag']['li']
-        print(emeta)
-        
-        
         # Create final metadata dictionary
         meta = {'filename': i, 'date': date, 'latitude': lat, 'longitude': long}
 
         df_loc = pd.DataFrame(meta, index=[0])
         df = pd.concat([df, df_loc], ignore_index=True)
-
 
     df.to_csv('photo_location_data.csv', index=False)
 
