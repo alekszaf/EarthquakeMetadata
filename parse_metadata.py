@@ -80,13 +80,15 @@ def get_metadata(path):
                 'latitude': lat,
                 'longitude': long,
             } | emeta_dict
+            
         df_loc = pd.DataFrame(meta, index=[0])
         df = pd.concat([df, df_loc], ignore_index=True)
 
-    df.to_csv('photo_location_data.csv', index=False)
+    df.to_csv('metadata.csv', index=False)
 
 if __name__=="__main__":
     print("Select the image directory")
     path = filedialog.askdirectory()
+    print("Input path: " + path)
     get_metadata(path)
-    print("Done!")
+    print("Done! metadata.csv is ready")
