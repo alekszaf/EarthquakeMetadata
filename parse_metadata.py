@@ -29,8 +29,6 @@ def get_metadata(path, out_path, output_name):
         # Access earthquake metadata
         emeta = xmp['RDF']['Description']['subject']['Bag']['li']
         emeta = [i.split(':', 1) for i in emeta]
-        print(i)
-        print(emeta)
 
         try:
             # Convert earthquake tags into dictionary
@@ -88,6 +86,7 @@ def get_metadata(path, out_path, output_name):
 
 
 if __name__=="__main__":
+    
     print("Select the image directory")
     path = filedialog.askdirectory()
     print("Input path: " + path)
