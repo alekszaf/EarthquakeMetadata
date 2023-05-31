@@ -31,8 +31,9 @@ def get_metadata(path):
         print(i)
         print(emeta)
 
-        # THIS IS TEMPORARY SOLUTION - skip the images with "Building address" entry
-        if ['Building address', ' N/A'] in emeta:
+
+        try:
+            # Convert earthquake tags into dictionary
             emeta_dict = dict(emeta)
 
             # Get date
@@ -68,9 +69,12 @@ def get_metadata(path):
                 'latitude': lat,
                 'longitude': long,
             } | emeta_dict
-            
+
             df_loc = pd.DataFrame(meta, index=[0])
             df = pd.concat([df, df_loc], ignore_index=True)
+            
+        except Exception:
+            print(f"Error in metadata for image {i}")
 
     df.to_csv('metadata.csv', index=False)
 
