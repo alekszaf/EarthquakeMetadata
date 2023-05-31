@@ -28,6 +28,8 @@ def get_metadata(path):
         # Access earthquake metadata
         emeta = xmp['RDF']['Description']['subject']['Bag']['li']
         emeta = [i.split(':', 1) for i in emeta]
+        print(i)
+        print(emeta)
 
         # THIS IS TEMPORARY SOLUTION - skip the images with "Building address" entry
         if ['Building address', ' N/A'] in emeta:
@@ -60,8 +62,6 @@ def get_metadata(path):
                 if gps['GPSLongitudeRef']=='W':
                     long = -long
 
-            print(lat, long)
-
             meta = {
                 'filename': i,
                 'date': date,
@@ -69,8 +69,8 @@ def get_metadata(path):
                 'longitude': long,
             } | emeta_dict
             
-        df_loc = pd.DataFrame(meta, index=[0])
-        df = pd.concat([df, df_loc], ignore_index=True)
+            df_loc = pd.DataFrame(meta, index=[0])
+            df = pd.concat([df, df_loc], ignore_index=True)
 
     df.to_csv('metadata.csv', index=False)
 
