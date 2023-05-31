@@ -10,7 +10,7 @@ def get_metadata(path):
     
     # Initialize empty dataframe
     df = pd.DataFrame()
-    
+
     for i in os.listdir(path):
         image_path = os.path.join(path, i)
         img = PIL.Image.open(image_path)
@@ -25,58 +25,61 @@ def get_metadata(path):
 
         # Check xmp metadata
         #print(img.getxmp())
-        
-                
+
         # Access the XMP metadata
         xmp = img.getxmp().items()
         for k, v in xmp:
             xmp = v
-        
+
         # Access earthquake metadata
         emeta = xmp['RDF']['Description']['subject']['Bag']['li']
         print(emeta)
-                
+
         emeta = [i.split(':', 1) for i in emeta]
-    
+
+        # THIS IS TEMPORARY SOLUTION - skip the images with "Building address" entry
         if ['Building address', ' N/A'] in emeta:
             emeta_dict = dict(emeta)
             print(emeta_dict)
-        
-        # Get date
-        date = img._getexif()[36867]
-        print(date)
 
-        # Get GPS metadata
-        gps={}
-        for k, v in exif['GPSInfo'].items():
-            geo_tag = PIL.ExifTags.GPSTAGS.get(k)
-            gps[geo_tag]=v
-        print(i)
-        print(gps)
+            # Get date
+            date = img._getexif()[36867]
+            print(date)
 
-        if gps['GPSImgDirectionRef']=='M':
-            lat = 'NA'
-            long = 'NA'
-        else:
-            # Get Latitude and Longitude
-            lat = gps['GPSLatitude']
-            long = gps['GPSLongitude']
+            # Get GPS metadata
+            gps={}
+            for k, v in exif['GPSInfo'].items():
+                geo_tag = PIL.ExifTags.GPSTAGS.get(k)
+                gps[geo_tag]=v
+            print(i)
+            print(gps)
 
-            # Convert to degrees
-            lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
-            long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
+            if gps['GPSImgDirectionRef']=='M':
+                lat = 'NA'
+                long = 'NA'
+            else:
+                # Get Latitude and Longitude
+                lat = gps['GPSLatitude']
+                long = gps['GPSLongitude']
 
-            # Negative if LatitudeRef:S or LongitudeRef:W
-            if gps['GPSLatitudeRef']=='S':
-                lat = -lat
-            if gps['GPSLongitudeRef']=='W':
-                long = -long
+                # Convert to degrees
+                lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
+                long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
 
-        print(lat, long)
-        
-        # Create final metadata dictionary
-        meta = {'filename': i, 'date': date, 'latitude': lat, 'longitude': long}
+                # Negative if LatitudeRef:S or LongitudeRef:W
+                if gps['GPSLatitudeRef']=='S':
+                    lat = -lat
+                if gps['GPSLongitudeRef']=='W':
+                    long = -long
 
+            print(lat, long)
+
+            meta = {
+                'filename': i,
+                'date': date,
+                'latitude': lat,
+                'longitude': long,
+            } | emeta_dict
         df_loc = pd.DataFrame(meta, index=[0])
         df = pd.concat([df, df_loc], ignore_index=True)
 
