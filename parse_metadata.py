@@ -98,4 +98,4 @@ if __name__=="__main__":
     output_name = input('Output file name: ')
     
     get_metadata(path, out_path, output_name)
-    print("Done! metadata.csv is ready")
+    print("Done! Metadata is ready")
