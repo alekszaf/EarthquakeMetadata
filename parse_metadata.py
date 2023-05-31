@@ -64,10 +64,10 @@ def get_metadata(path, out_path, output_name):
                     long = -long
 
             meta = {
-                'filename': i,
-                'date': date,
-                'latitude': lat,
-                'longitude': long,
+                'File name': i,
+                'Date of creation': date,
+                'Latitude': lat,
+                'Longitude': long,
             } | emeta_dict
 
             df_meta = pd.DataFrame(meta, index=[0])
