@@ -20,12 +20,6 @@ def get_metadata(path):
             if k in PIL.ExifTags.TAGS
             }
 
-        # Check exif metadata
-        #print(exif)
-
-        # Check xmp metadata
-        #print(img.getxmp())
-
         # Access the XMP metadata
         xmp = img.getxmp().items()
         for k, v in xmp:
@@ -33,26 +27,20 @@ def get_metadata(path):
 
         # Access earthquake metadata
         emeta = xmp['RDF']['Description']['subject']['Bag']['li']
-        print(emeta)
-
         emeta = [i.split(':', 1) for i in emeta]
 
         # THIS IS TEMPORARY SOLUTION - skip the images with "Building address" entry
         if ['Building address', ' N/A'] in emeta:
             emeta_dict = dict(emeta)
-            print(emeta_dict)
 
             # Get date
             date = img._getexif()[36867]
-            print(date)
 
             # Get GPS metadata
             gps={}
             for k, v in exif['GPSInfo'].items():
                 geo_tag = PIL.ExifTags.GPSTAGS.get(k)
                 gps[geo_tag]=v
-            print(i)
-            print(gps)
 
             if gps['GPSImgDirectionRef']=='M':
                 lat = 'NA'
