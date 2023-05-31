@@ -10,6 +10,7 @@ def get_metadata(path):
     
     # Initialize empty dataframe
     df = pd.DataFrame()
+    meta_err = pd.DataFrame()
 
     for i in os.listdir(path):
         image_path = os.path.join(path, i)
@@ -30,7 +31,6 @@ def get_metadata(path):
         emeta = [i.split(':', 1) for i in emeta]
         print(i)
         print(emeta)
-
 
         try:
             # Convert earthquake tags into dictionary
@@ -70,13 +70,17 @@ def get_metadata(path):
                 'longitude': long,
             } | emeta_dict
 
-            df_loc = pd.DataFrame(meta, index=[0])
-            df = pd.concat([df, df_loc], ignore_index=True)
+            df_meta = pd.DataFrame(meta, index=[0])
+            df = pd.concat([df, df_meta], ignore_index=True)
             
         except Exception:
             print(f"Error in metadata for image {i}")
+            err_files = {'filename' : i}
+            df_meta = pd.DataFrame(err_files, index=[0])
+            meta_err = pd.concat([meta_err, df_meta])
 
     df.to_csv('metadata.csv', index=False)
+    meta_err.to_csv('metadata_errors.csv', index=False)
 
 if __name__=="__main__":
     print("Select the image directory")
