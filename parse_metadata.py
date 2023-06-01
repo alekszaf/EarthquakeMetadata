@@ -26,11 +26,12 @@ def get_metadata(path, out_path, output_name):
         for k, v in xmp:
             xmp = v
 
-        # Access earthquake metadata
-        emeta = xmp['RDF']['Description']['subject']['Bag']['li']
-        emeta = [i.split(':', 1) for i in emeta]
-
         try:
+            
+            # Access earthquake metadata
+            emeta = xmp['RDF']['Description']['subject']['Bag']['li']
+            emeta = [i.split(':', 1) for i in emeta]
+            
             # Convert earthquake tags into dictionary
             emeta_dict = dict(emeta)
 
@@ -43,7 +44,7 @@ def get_metadata(path, out_path, output_name):
                 geo_tag = PIL.ExifTags.GPSTAGS.get(k)
                 gps[geo_tag]=v
 
-            if gps['GPSImgDirectionRef']=='M':
+            if gps['GPSStatus']=='V':
                 lat = 'NA'
                 long = 'NA'
             else:
