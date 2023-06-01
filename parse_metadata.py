@@ -36,7 +36,10 @@ def get_metadata(path, out_path, output_name):
             emeta_dict = dict(emeta)
 
             # Get date
-            date = img._getexif()[36867]
+            try:    
+                date = img._getexif()[36867]
+            except Exception:
+                date = 'NA'
 
             # Get GPS metadata
             gps={}
