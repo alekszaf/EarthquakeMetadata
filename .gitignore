@@ -4,6 +4,5 @@
 .vscode
 __pycache__
 tempCodeRunnerFile.py
-parse_metadata.py
 Images/
 test/
