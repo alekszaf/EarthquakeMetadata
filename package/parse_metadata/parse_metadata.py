@@ -39,7 +39,7 @@ def get_metadata(path, out_path, output_name):
             try:    
                 date = img._getexif()[36867]
             except Exception:
-                print("Invalid date for file " + i)
+                print(f"Invalid date for image {i}")
                 date = 'NA'
 
             # Get GPS metadata
@@ -70,7 +70,7 @@ def get_metadata(path, out_path, output_name):
             except Exception:
                 lat = 'NA'
                 long = 'NA'
-                print("Invalid GPS for file " + i)
+                print(f"Invalid GPS for image {i}")
 
             meta = {
                 'File name': i,
@@ -81,7 +81,7 @@ def get_metadata(path, out_path, output_name):
 
             df_meta = pd.DataFrame(meta, index=[0])
             df = pd.concat([df, df_meta], ignore_index=True)
-            print(i + " metadata saved")
+            print(f"Metadata of image {i} saved")
         
         # If error in metadata, skip the file and record it in a dataframe    
         except Exception:
