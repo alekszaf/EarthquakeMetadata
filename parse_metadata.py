@@ -39,31 +39,37 @@ def get_metadata(path, out_path, output_name):
             try:    
                 date = img._getexif()[36867]
             except Exception:
+                print("Invalid date for file " + i)
                 date = 'NA'
 
             # Get GPS metadata
-            gps={}
-            for k, v in exif['GPSInfo'].items():
-                geo_tag = PIL.ExifTags.GPSTAGS.get(k)
-                gps[geo_tag]=v
+            try:
+                gps={}
+                for k, v in exif['GPSInfo'].items():
+                    geo_tag = PIL.ExifTags.GPSTAGS.get(k)
+                    gps[geo_tag]=v
 
-            if gps['GPSStatus']=='V':
+                if gps['GPSStatus']=='V':
+                    lat = 'NA'
+                    long = 'NA'
+                else:
+                    # Get Latitude and Longitude
+                    lat = gps['GPSLatitude']
+                    long = gps['GPSLongitude']
+
+                    # Convert to degrees
+                    lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
+                    long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
+
+                    # Negative if LatitudeRef:S or LongitudeRef:W
+                    if gps['GPSLatitudeRef']=='S':
+                        lat = -lat
+                    if gps['GPSLongitudeRef']=='W':
+                        long = -long
+            except Exception:
                 lat = 'NA'
                 long = 'NA'
-            else:
-                # Get Latitude and Longitude
-                lat = gps['GPSLatitude']
-                long = gps['GPSLongitude']
-
-                # Convert to degrees
-                lat = float(lat[0]+(lat[1]/60)+(lat[2]/(3600*100)))
-                long = float(long[0]+(long[1]/60)+(long[2]/(3600*100)))
-
-                # Negative if LatitudeRef:S or LongitudeRef:W
-                if gps['GPSLatitudeRef']=='S':
-                    lat = -lat
-                if gps['GPSLongitudeRef']=='W':
-                    long = -long
+                print("Invalid GPS for file " + i)
 
             meta = {
                 'File name': i,
@@ -80,8 +86,8 @@ def get_metadata(path, out_path, output_name):
         except Exception:
             print(f"Error in metadata for image {i}")
             err_files = {'filename' : i}
-            df_meta = pd.DataFrame(err_files, index=[0])
-            meta_err = pd.concat([meta_err, df_meta])
+            df_meta_err = pd.DataFrame(err_files, index=[0])
+            meta_err = pd.concat([meta_err, df_meta_err])
 
     # Save the metadata to a CSV
     df.to_csv(os.path.join(out_path, output_name + '.csv'), index=False)
