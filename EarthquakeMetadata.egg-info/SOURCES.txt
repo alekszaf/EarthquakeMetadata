@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-EarthquakeMetadata.egg-info/PKG-INFO
-EarthquakeMetadata.egg-info/SOURCES.txt
-EarthquakeMetadata.egg-info/dependency_links.txt
-EarthquakeMetadata.egg-info/requires.txt
-EarthquakeMetadata.egg-info/top_level.txt
-package/__main__.py
-package/parse_metadata.py
