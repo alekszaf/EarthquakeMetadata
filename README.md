@@ -20,6 +20,11 @@ Create a virtual environment to keep the project dependencies isolated from your
 
 ```bash
 python3.10.exe -m venv .venv
+```
+
+Activate the virtual environment
+
+```bash
 source .venv/bin/activate
 ```
 
@@ -47,7 +52,12 @@ Create a virtual environment to keep the project dependencies isolated from your
 
 ```powershell
 python3.10.exe -m venv .venv
-.venv\Script\activate
+```
+
+Activate the virtual environment
+
+```powershell
+.\.venv\Script\activate
 ```
 
 Install the dependencies for this project:
