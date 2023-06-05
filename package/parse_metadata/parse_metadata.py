@@ -27,7 +27,7 @@ def get_metadata(path, out_path, output_name):
             xmp = v
 
         try:
-            
+        
             # Access earthquake metadata
             emeta = xmp['RDF']['Description']['subject']['Bag']['li']
             emeta = [i.split(':', 1) for i in emeta]
@@ -66,10 +66,11 @@ def get_metadata(path, out_path, output_name):
                         lat = -lat
                     if gps['GPSLongitudeRef']=='W':
                         long = -long
+                        
             except Exception:
                 lat = 'NA'
                 long = 'NA'
-                print(f"Invalid GPS for image {i}")
+                print("Invalid GPS for file " + i)
 
             meta = {
                 'File name': i,

@@ -37,7 +37,7 @@ def process_files():
     # Define the bucket name and service account key file path
     BUCKET_NAME = "test_photos_earthquake_research"
     KEY_FILE = "service_account_key.json"
-    PATH = "./api_requests/google_cloud_platform/"
+    PATH = "./package/api_requests/google_cloud_platform/"
     KEY_FILE_PATH = os.path.join(PATH, KEY_FILE)
 
     # Get the file URLs and file names
