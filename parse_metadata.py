@@ -74,7 +74,7 @@ def get_metadata(path, out_path, output_name):
 
             df_meta = pd.DataFrame(meta, index=[0])
             df = pd.concat([df, df_meta], ignore_index=True)
-            print("Metadata saved")
+            print(i + " metadata saved")
         
         # If error in metadata, skip the file and record it in a dataframe    
         except Exception:
