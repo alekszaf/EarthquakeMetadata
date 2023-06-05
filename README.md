@@ -1,29 +1,57 @@
-# EarthquakeMetadata
+# Earthquake Research Project
 
-## Environment Setup
-### Step 1: Clone the Repository
+Towards Predictive Situational Awareness of Urban Pedestrian Flows
+
+## Installation on Bash Terminal
+
+Clone the repository:
+
 ```bash
-mkdir EarthquakeMetadata
-git clone https://github.com/alekszaf/EarthquakeMetadata.git ./EarthquakeMetadata
+git clone https://github.com/alekszaf/EarthquakeMetadata.git
+```
+
+Navigate to the project directory:
+
+```bash
 cd EarthquakeMetadata
 ```
 
-### Step 2: Create a Virtual Environment
+Create a virtual environment to keep the project dependencies isolated from your system Python:
+
 ```bash
 python3.10.exe -m venv .venv
+source .venv/bin/activate
 ```
 
-### Step 3: Activate the Virtual Environment
+Install the dependencies for this project:
+
 ```bash
-.venv/Scripts/activate
+pip install .
 ```
 
-### Step 4: Install Dependencies
-```bash
-python3.10.exe install -r requirements.txt
+## Installation on Windows PowerShell Terminal
+
+Clone the repository:
+
+```powershell
+git clone https://github.com/alekszaf/EarthquakeMetadata.git
 ```
 
-### Step 5: Run the Project (to be implemented)
-```bash
-python main.py
+Navigate to the project directory:
+
+```powershell
+cd EarthquakeMetadata
+```
+
+Create a virtual environment to keep the project dependencies isolated from your system Python:
+
+```powershell
+python3.10.exe -m venv .venv
+.venv\Script\activate
+```
+
+Install the dependencies for this project:
+
+```powershell
+pip install .
 ```
