@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: EarthquakeMetadata
+Version: 0.1.0
+Summary: Backend for the earthquake web-app
+Author-email: Carrow Morris-Wiltshre <c.morris-wiltshire@newcastle.ac.uk>, Aleksandra Zaforemska <a.zaforemska2@newcastle.ac.uk>, Kristina Wolf <k.wolf2@newcastle.ac.uk>
+Requires-Python: <3.11,>=3.10
+Description-Content-Type: text/markdown
+
+# Earthquake Research Project
+
+Towards Predictive Situational Awareness of Urban Pedestrian Flows
+
+## Installation on Bash Terminal
+
+Clone the repository:
+
+```bash
+git clone https://github.com/alekszaf/EarthquakeMetadata.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd EarthquakeMetadata
+```
+
+Create a virtual environment to keep the project dependencies isolated from your system Python:
+
+```bash
+python3.10.exe -m venv .venv
+source .venv/bin/activate
+```
+
+Install the dependencies for this project:
+
+```bash
+pip install .
+```
+
+## Installation on Windows PowerShell Terminal
+
+Clone the repository:
+
+```powershell
+git clone https://github.com/alekszaf/EarthquakeMetadata.git
+```
+
+Navigate to the project directory:
+
+```powershell
+cd EarthquakeMetadata
+```
+
+Create a virtual environment to keep the project dependencies isolated from your system Python:
+
+```powershell
+python3.10.exe -m venv .venv
+.venv\Script\activate
+```
+
+Install the dependencies for this project:
+
+```powershell
+pip install .
+```
