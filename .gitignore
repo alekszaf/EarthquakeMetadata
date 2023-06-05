@@ -6,4 +6,5 @@ __pycache__
 tempCodeRunnerFile.py
 Images/
 test/
-build
+build/
+EarthquakeMetadata.egg-info/
