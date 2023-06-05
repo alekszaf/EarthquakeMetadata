@@ -69,7 +69,7 @@ def get_metadata(path, out_path, output_name):
             except Exception:
                 lat = 'NA'
                 long = 'NA'
-                print("Invalid GPS for file " + i)
+                print(f"Invalid GPS for image {i}")
 
             meta = {
                 'File name': i,
