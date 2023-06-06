@@ -1,6 +1,6 @@
 # Earthquake Research Project
 
-Towards Predictive Situational Awareness of Urban Pedestrian Flows
+Backend for a GIS web-app designed to generate insights from earthquake photos
 
 ## Installation on Bash Terminal
 
