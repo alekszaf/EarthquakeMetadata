@@ -38,7 +38,7 @@ dependencies = [
     "six==1.16.0",
     "tzdata==2023.3",
     "urllib3==1.26.16"
-]
+] # these are the dependencies that will be installed in the virtual environment .venv directory
 
 [tool.setuptools]
 packages = ["package"] # this line specifies the package location
