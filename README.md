@@ -22,7 +22,7 @@ Create a virtual environment to keep the project dependencies isolated from your
 python3.10.exe -m venv .venv
 ```
 
-Activate the virtual environment
+Activate the virtual environment:
 
 ```bash
 source .venv/bin/activate

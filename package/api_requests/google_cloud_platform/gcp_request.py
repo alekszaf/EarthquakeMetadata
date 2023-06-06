@@ -46,9 +46,6 @@ def process_files():
     # Create a Pandas DataFrame
     df = pd.DataFrame({"File URL": file_urls, "File Name": file_names})
 
-    # Print the DataFrame
-    print(df)
-
     # Save the dataframe to a csv file
     OUTPUT_FILE = "output.csv"
     df.to_csv(os.path.join(PATH, OUTPUT_FILE), index=False)

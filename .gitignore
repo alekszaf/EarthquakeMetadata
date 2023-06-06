@@ -1,5 +1,5 @@
 *.jpg
-*.csv
+#*.csv
 .venv
 .vscode
 __pycache__
