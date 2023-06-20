@@ -8,3 +8,4 @@ Images/
 test/
 build/
 EarthquakeMetadata.egg-info/
+service_account_key.json

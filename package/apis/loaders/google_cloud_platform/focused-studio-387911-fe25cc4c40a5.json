@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "focused-studio-387911",
+  "private_key_id": "fe25cc4c40a557207c41c4d63b82177611e7ad50",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJWLQ7wYkihd/H\ncKFMODByRnGAQWPFFubALMVpLki97cHKRf/ceuJbbzrLGaVr6gPtM3F3QpFEUOi7\nONS31+4fKoHVVAmzUAbS7/LpeqB5aq3T74ajw15vTxgUgDw5IWzyk4VeFFLEyNUh\nRua4I0SppV2HxEZtXvFClukKT15QQxeTiMWewYSDWhWlhzPsFtRUDQYMjct73Yqx\nQPrrnMKsGs0/CuQ3tflgAE94r0Q/fIotB+CBJvkpTM+qgryjsoREJkSVtVCxb7Un\nJIVc4K17y8SWBaV4UWuwbEfIRDzPq3tjdtKflbDkmlavry9ieXyjMV4rZejab+Dd\nrYw7R6BVAgMBAAECggEAEjoYOMecnzYwy5hv1ZtJkXK8kCB7RGp+EZwL8+lXdvAY\nyLOdBavPJXlUgHHOJo589AJh7WqmhWFwrBApO4pN2V7q+XGd3jBqqbpEimvKLqug\nWEz46obDW/60PpjcOszClNQTcPCUjJFkr9pABR/WNahNZv625GxBmWZZatBECK5d\nC/GHx3sUmtKz2wCnbR9AS1Qv8wnJakpUFCBAA4llzVZYzgGZFuUbp9F6gdZfkelo\nELDOR455F4eKFvY3wTDIZm6n/CWUjJ9GMdRdEfde4ZLBoXv5oP70DF4wGJX9fzai\nxUUYIoihfuhMn62DLy+5p5UKBH7wEC8WZnA/5ZociQKBgQDo1yGS1kAbs5GTlksB\neW0RL5rGaiReD67FdMz4px9ibmroBm5CQxn+Ja3Be3oMWvQkdoXsgPm4qOe4LCf1\nPwlhBOF7D7IArQv4il4Z1KWlFclM4PLElpbdLSBPZY8Hi/fH7LixR4PLTEH/6vrF\nr/tnU5wfATv46VVxw83KdY0PbQKBgQDdX6MtsOXF+jKQVVqfAI4mUeUoGNPhmfnq\nvxvhDQ5jtxhH2PZsnz0aOUUyRTAQ3Jrd3FskBarjcqKTaRF3y64xcfJBSO5M+iNi\nz+fa5k/F6sQ0JSbwPphvBVdzJa3Fl+z2UYrL2NGn0uMm8rJ0mw4VKwxDA6z4r27K\nCgrOdEV7iQKBgQCggVRCfXDZ57INlAgGbybxNuixqA+Dy7nFodt9+O6YktcdNPmi\nsdDkMiMSAkVC6RvtWsq9GreKRNzfR4kP9TFI8O1iQJKLBr7+yJtPoRfCsj7+wP54\n5/n9Y5MnSDINmL3o0lUK1+qRJPNGMDxINCTQuIEhml82GdrtvnVJADmKDQKBgQDM\nL+eSQGVfu8whxyjEGj4DaGxnFKdyopSbCtVLOsC4Buz1cFCzlhlE8+g4WwrfsquB\n0juauUOLcXQ1ZadACPXOE5zwzLVI+Tvka4IfLWoNUuLQeig1VndBh/rGcc2bwOtH\ns6TDK2UOV/0/MoKZ/V769W7k7SIBa8dTwfl/vk1MiQKBgD/6e/gEoYiJNX0wMxPj\nDIqJognW9tpy2MOOY8hYwQeoGToJfKsuGDN1SMq2xdVtFmbqjGsyeHq/Q+GYdV9Q\nxksvezD1FE1NamsMCBJGjre2MFgWiUUS9FmKS8F2Cc7zTeLVDK265KiBb9XTjPEV\nvTpUL5ZthBpv40PtvxfMCv+A\n-----END PRIVATE KEY-----\n",
+  "client_email": "storage-access@focused-studio-387911.iam.gserviceaccount.com",
+  "client_id": "110790611216959913693",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storage-access%40focused-studio-387911.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
