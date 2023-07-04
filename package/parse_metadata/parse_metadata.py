@@ -21,19 +21,20 @@ def get_metadata(path, out_path, output_name):
             if k in PIL.ExifTags.TAGS
             }
 
-        # Access the XMP metadata
-        xmp = img.getxmp().items()
-        for k, v in xmp:
-            xmp = v
-
         try:
-        
+            
+            # Access the XMP metadata
+            xmp = img.getxmp().items()
+            for k, v in xmp:
+            xmp = v
+            
             # Access earthquake metadata
             emeta = xmp['RDF']['Description']['subject']['Bag']['li']
             emeta = [i.split(':', 1) for i in emeta]
+            print(emeta)
             
             # Convert earthquake tags into dictionary
-            emeta_dict = dict(emeta)
+            #emeta_dict = dict(emeta)
 
             # Get date
             try:    
@@ -77,7 +78,8 @@ def get_metadata(path, out_path, output_name):
                 'Date of creation': date,
                 'Latitude': lat,
                 'Longitude': long,
-            } | emeta_dict
+            } 
+            #| emeta_dict
 
             df_meta = pd.DataFrame(meta, index=[0])
             df = pd.concat([df, df_meta], ignore_index=True)
