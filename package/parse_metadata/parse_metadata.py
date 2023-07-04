@@ -11,22 +11,25 @@ def get_metadata(path, out_path, output_name):
     # Initialize empty dataframe
     df = pd.DataFrame()
     meta_err = pd.DataFrame()
+    
+    ext = ('.png', '.jpg', '.jpeg')
 
     for i in os.listdir(path):
-        image_path = os.path.join(path, i)
-        img = PIL.Image.open(image_path)
-        exif = {
-            PIL.ExifTags.TAGS[k]: v
-            for k, v in img._getexif().items()
-            if k in PIL.ExifTags.TAGS
-            }
+        if i.endswith(ext):
+            image_path = os.path.join(path, i)
+            img = PIL.Image.open(image_path)
+            exif = {
+                PIL.ExifTags.TAGS[k]: v
+                for k, v in img._getexif().items()
+                if k in PIL.ExifTags.TAGS
+                }
 
         try:
             
             # Access the XMP metadata
             xmp = img.getxmp().items()
             for k, v in xmp:
-            xmp = v
+                xmp = v
             
             # Access earthquake metadata
             emeta = xmp['RDF']['Description']['subject']['Bag']['li']
@@ -35,7 +38,7 @@ def get_metadata(path, out_path, output_name):
             
             # Convert earthquake tags into dictionary
             #emeta_dict = dict(emeta)
-
+            
             # Get date
             try:    
                 date = img._getexif()[36867]
