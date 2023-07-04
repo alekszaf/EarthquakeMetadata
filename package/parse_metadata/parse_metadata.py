@@ -136,7 +136,8 @@ if __name__=="__main__":
     print("Input path: " + path)
     
     print("Select the output directory")
-    out_path = filedialog.askdirectory()
+    #out_path = filedialog.askdirectory()
+    out_path = './Outputs'
     print("Output path: " + out_path)
     
     output_name = input('Output file name: ')
