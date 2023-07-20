@@ -5,7 +5,7 @@ in a user's OneDrive using the Microsoft Graph API.
 
 import json
 import requests
-import api.msa.generate_access_token as generate_access_token
+import package.apis.loaders.ms_azure.generate_access_token as generate_access_token
 
 
 def get_folder_children(user_email, folder_path, access_token, timeout=None):
@@ -47,7 +47,7 @@ def main():
     """
 
     user_email = "nsmw4@newcastle.ac.uk"
-    folder_path = "/Documents/Qsync/research/EEFIT/new grant/nepal/photos"
+    folder_path = "/Documents/EEFIT repository/Locations/2011 - Christchurch NZ"
     access_token = generate_access_token.token_request()
     data = get_folder_children(user_email, folder_path, access_token)
 

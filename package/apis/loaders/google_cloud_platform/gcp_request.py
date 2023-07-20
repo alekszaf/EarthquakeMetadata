@@ -14,7 +14,7 @@ PATH = "./package/apis/loaders/google_cloud_platform/"
 KEY_FILE_PATH = os.path.join(PATH, KEY_FILE)
 
 
-def get_bucket_file_info(bucket_name, key_file_path):
+def get_bucket_file_info(bucket_name=BUCKET_NAME, key_file_path=KEY_FILE_PATH):
     """
     Retrieve the file URLs and file names from the specified bucket.
 
@@ -39,7 +39,7 @@ def get_bucket_file_info(bucket_name, key_file_path):
     return urls, names
 
 
-def process_files():
+def process_files(bucket_name=BUCKET_NAME):
     """
     Retrieves the file URLs and file names from a specified Google Cloud bucket,
     and stores them in a Pandas DataFrame.
@@ -54,7 +54,7 @@ def process_files():
     """
 
     # get the file URLs and file names
-    file_urls, file_names = get_bucket_file_info(BUCKET_NAME, KEY_FILE_PATH)
+    file_urls, file_names = get_bucket_file_info(bucket_name, KEY_FILE_PATH)
 
     # create a Pandas DataFrame
     file_info_df = pd.DataFrame({"File URL": file_urls, "File Name": file_names})

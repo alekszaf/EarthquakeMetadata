@@ -1,7 +1,11 @@
 import os
+import sys
+root = os.getcwd()
+print(root)
+sys.path.append(os.path.join(root, "\package"))
 import requests
 from panoptes_client import Panoptes, Project, SubjectSet, Subject
-from loaders.google_cloud_platform.gcp_request import process_files
+from package.apis.loaders.google_cloud_platform.gcp_request import process_files
 
 Panoptes.connect(username="carrowmw", password="2VcqEhRjFKN73Tp")
 
@@ -45,13 +49,13 @@ learning_from_earthquakes.reload()
 print(learning_from_earthquakes.links.subject_sets)
 
 # get dataframe from GCP
-df = process_files()
+df = process_files(bucket_name="photos_for_zooniverse")
 
 # convert dataframe to the dictionary format needed for panoptes subjects
 subject_metadata = df.to_dict(orient="records")
 
 learning_from_earthquakes = Project.find(
-    slug="learning-from-earthquakes-image-labelling"
+    slug="carrowmw/learning-from-earthquakes-image-labelling"
 )  # slug is a url-friendly version of the project name
 
 # Fetch list of all subjects in the project
@@ -93,9 +97,10 @@ for i, record in enumerate(subject_metadata):
 
     new_subjects.append(subject)
 
-print("Processing completed.")
-
-# add the new subjects to the subject set
-subject_set.add(new_subjects)
-
-print("New subjects added to the subject set")
+if len(new_subjects) > 0:
+    # add the new subjects to the subject set
+    subject_set.add(new_subjects)
+    print("New subjects added to the subject set")
+    print("Processing completed.")
+else:
+    print("No new subjects added")
