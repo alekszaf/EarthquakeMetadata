@@ -1,0 +1,147 @@
+[
+    {
+        "ID": "508976009",
+        "Annotations": [
+            {
+                "task": "T0",
+                "value": 0
+            },
+            {
+                "task": "T1",
+                "value": 2
+            },
+            {
+                "task": "T2",
+                "value": 1
+            },
+            {
+                "task": "T3",
+                "value": 9
+            }
+        ],
+        "Subject": [
+            "91595194"
+        ],
+        "Metadata": {
+            "File Name": "DSCN4048.JPG",
+            "File URL": "https://storage.googleapis.com/photos_for_zooniverse/DSCN4048.JPG"
+        },
+        "Source": "zooniverse"
+    },
+    {
+        "ID": "508976122",
+        "Annotations": [
+            {
+                "task": "T0",
+                "value": 2
+            },
+            {
+                "task": "T1",
+                "value": 3
+            },
+            {
+                "task": "T2",
+                "value": 1
+            },
+            {
+                "task": "T3",
+                "value": 0
+            }
+        ],
+        "Subject": [
+            "91595175"
+        ],
+        "Metadata": {
+            "File Name": "DSCN4028.JPG",
+            "File URL": "https://storage.googleapis.com/photos_for_zooniverse/DSCN4028.JPG"
+        },
+        "Source": "zooniverse"
+    },
+    {
+        "ID": "502026830",
+        "Annotations": [
+            {
+                "task": "T0",
+                "value": 0
+            },
+            {
+                "task": "T1",
+                "value": 2
+            },
+            {
+                "task": "T2",
+                "value": 1
+            },
+            {
+                "task": "T3",
+                "value": 9
+            }
+        ],
+        "Subject": [
+            "90816648"
+        ],
+        "Metadata": {
+            "File Name": "",
+            "File URL": ""
+        },
+        "Source": "zooniverse"
+    },
+    {
+        "ID": "502026785",
+        "Annotations": [
+            {
+                "task": "T0",
+                "value": 0
+            },
+            {
+                "task": "T1",
+                "value": 2
+            },
+            {
+                "task": "T2",
+                "value": 1
+            },
+            {
+                "task": "T3",
+                "value": 9
+            }
+        ],
+        "Subject": [
+            "90816734"
+        ],
+        "Metadata": {
+            "File Name": "",
+            "File URL": ""
+        },
+        "Source": "zooniverse"
+    },
+    {
+        "ID": "502026912",
+        "Annotations": [
+            {
+                "task": "T0",
+                "value": 0
+            },
+            {
+                "task": "T1",
+                "value": 1
+            },
+            {
+                "task": "T2",
+                "value": 1
+            },
+            {
+                "task": "T3",
+                "value": 13
+            }
+        ],
+        "Subject": [
+            "90815442"
+        ],
+        "Metadata": {
+            "File Name": "",
+            "File URL": ""
+        },
+        "Source": "zooniverse"
+    }
+]
